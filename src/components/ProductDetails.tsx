@@ -38,6 +38,7 @@ const ProductDetails = () => {
           <h2 className="text-xl font-bold mb-2">{product.category}</h2> {/* Category */}
           <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
           <p className="text-gray-700 mb-4">{product.description}</p>
+          <p className="text-gray-700 mb-4">${product.price}</p>
           <div className="flex items-center">
             <div className="flex items-center">
               <div className="mx-2 text-lg">{cartCount}</div>

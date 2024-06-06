@@ -18,6 +18,7 @@ const Main = () => {
                 category={item.category}
                 name={item.name}
                 description={item.description}
+                price={item.price}
               />
             ))}
           </div>

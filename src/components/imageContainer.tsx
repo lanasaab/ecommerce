@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ImageContainer = ({ id, src, name, description, category }: { id: string, src: string, name: string, description: string, category: string }) => {
+const ImageContainer = ({ id, src, name, description, category, price }: { id: string, src: string, name: string, description: string, category: string, price: number | undefined }) => {
  
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between card">
@@ -9,8 +9,7 @@ const ImageContainer = ({ id, src, name, description, category }: { id: string, 
         <img src={src} alt={name} className="object-cover mb-4 rounded-lg h-[400px] w-[400px]" />
         <p className="text-gray-600 text-sm mb-2">{category}</p>
         <h3 className="text-xl font-bold mb-2">{name}</h3>
-        <p className="text-gray-700 mb-2">{description}</p>
-        
+        <p className="text-gray-700 mb-2">${price}</p>
       </div>
       <div className="flex justify-between">
         <div>
@@ -18,7 +17,6 @@ const ImageContainer = ({ id, src, name, description, category }: { id: string, 
             Shop Now
           </Link>
         </div>
-        
       </div>
     </div>
   );
