@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { MdLocalShipping } from "react-icons/md";
+import { MdLocalOffer } from "react-icons/md";
 const SponsorsSection: React.FC = () => {
   return (
     <section className="my-10">
@@ -19,22 +20,28 @@ const SponsorsSection: React.FC = () => {
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-stretch gap-0">
-        <div className="flex-1 bg-white p-6 rounded-r-lg shadow-lg flex flex-col justify-center items-center text-center m-10">
-          <div>
-            <h2 className="text-3xl font-bold mb-4">Season Sale</h2>
-            <p className="text-gray-700 mb-6">Get ready to refresh your beauty stash with our exclusive Season Sale! Enjoy incredible discounts on your favorite cosmetics for a limited time only.</p>
-          </div>
-        </div>
-        <div className="flex-1 bg-white p-6 rounded-r-lg shadow-lg flex flex-col justify-center items-center text-center m-10">
-          <div>
+            <div className="flex-1 bg-white p-6 rounded-r-lg shadow-lg flex flex-col justify-center items-center text-center m-10">
+                <div>
+                    <h2 className="text-3xl font-bold mb-4">Season Sale</h2>
+                    <i className="fas fa-tags text-5xl mb-4"></i>
+                    <p className="text-gray-700 mb-6">Get ready to refresh your beauty stash with our exclusive Season Sale! Enjoy incredible discounts on your favorite cosmetics for a limited time only.</p>
+                </div>
+            </div>
+            <div className="flex-1 bg-white p-6 rounded-r-lg shadow-lg flex flex-col justify-center items-center text-center m-10">
+            <div>
             <h2 className="text-3xl font-bold mb-4">Free Shipping</h2>
+            <div className="flex justify-center items-center mb-4"> {/* Using flexbox to center the icon */}
+                <MdLocalShipping className="text-5xl" /> {/* Adding the MdLocalShipping icon */}
+            </div>
             <p className="text-gray-700 mb-6">Enjoy our Free Shipping offer! No minimum purchase required. It's the perfect time to stock up on your beauty essentials.</p>
-          </div> 
         </div>
-      </div>
+            </div>
+        </div>
+
     </section>
     
   );
 };
 
 export default SponsorsSection;
+<MdLocalOffer />

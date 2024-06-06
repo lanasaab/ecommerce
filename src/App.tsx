@@ -1,27 +1,10 @@
+import React from 'react';
+import Routing from './routes/Router';
 
-import './App.css'
-import Header from './components/Header'
-import Main from './components/Main'
-import SponsorsSection from './components/SponsorsSection'
-import ContactUs from './components/ConactUsSection'
-import Footer from './components/Footer'
-
-
-function App() {
-
+const App: React.FC = () => {
   return (
-    <>
+<Routing/>
+  );
+};
 
-<main>
-  <Header/>
-  <Main/>
-  <SponsorsSection/>
-  <ContactUs/>
-  <Footer/>
-</main>
-
-    </>
-  )
-}
-
-export default App
+export default App;
