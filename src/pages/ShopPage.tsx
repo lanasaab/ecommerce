@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaShoppingCart, FaArrowRight, FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaShoppingCart, FaArrowRight, FaFacebook, FaTwitter, FaUser } from "react-icons/fa";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import ShoppingCartPage from '../components/ShoppingCartPage';
@@ -8,14 +8,15 @@ import Main from '../components/Main';
 import Footer from '../components/Footer';
 import ImageContainer from '../components/ImageContainer';
 
+
 const ShopPage = () => {
-  const [showCart, setShowCart] = useState(false);
-  const [productCount, setProductCount] = useState(0); 
+    const [showCart, setShowCart] = useState(false);
+    const [productCount, setProductCount] = useState(0); 
 
-  const toggleCart = () => {
-    setShowCart(!showCart);
-  };
-
+    const toggleCart = () => {
+      setShowCart(!showCart);
+    };
+    
   return (
     <div>
       <header className="bg-white shadow-md">
@@ -28,6 +29,8 @@ const ShopPage = () => {
             <li className="mx-4"><a href="/shop" className="text-black no-underline p-3.5 block">Shop</a></li>
             <li className="mx-4"><a href="/contact" className="text-black no-underline p-3.5 block">Contact</a></li>
             <li className="mx-4"><a href="/about" className="text-black no-underline p-3.5 block">About</a></li>
+            <li className="mx-4"><Link to="/login" className="text-black no-underline p-3.5 flex items-center">Login
+            <FaUser className="ml-2"/></Link></li>
           </ul>
           <div className="cursor-pointer ml-4" onClick={toggleCart}>
             <FaShoppingCart/>
@@ -36,7 +39,7 @@ const ShopPage = () => {
     
   </header>
       <div className="max-w-6xl mx-auto flex mt-10 px-4">
-        <aside className="w-full md:w-1/4 lg:w-1/4 p-4 flex-shrink-0 mt-40">
+        <aside className="w-full md:w-1/4 lg:w-1/4 p-4 mt-40">
           <div className="bg-white p-4 rounded-lg shadow-md mb-6">
             <h2 className="text-xl font-semibold mb-4">Search Products</h2>
             <div className="flex">
@@ -67,7 +70,7 @@ const ShopPage = () => {
         </aside>
         <Main />
         <div className="mt-40 ml-5">
-          <div className="w-full bg-white p-2 rounded-lg shadow-md mb-6 self-end">
+          <div className="w-full bg-white p-2 rounded-lg shadow-md mb-6">
             <h2 className="text-lg font-semibold mb-2">Sort By</h2>
             <select className="w-full p-1 border border-gray-300 rounded-lg">
               <option value="popularity">Popularity</option>
@@ -76,8 +79,10 @@ const ShopPage = () => {
               <option value="newest">Newest</option>
             </select>
           </div>
+          
         </div>
       </div>
+      
       <Footer />
       {showCart && <ShoppingCartPage onClose={toggleCart} productCount={productCount} />}
     </div>

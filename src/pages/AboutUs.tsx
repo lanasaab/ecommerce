@@ -2,7 +2,7 @@
 import { FaFacebook } from "react-icons/fa";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FaTwitter } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import ShoppingCartPage from '../components/ShoppingCartPage';
 import { useState } from "react";
@@ -27,8 +27,10 @@ const AboutUs: React.FC = () => {
             <li className="mx-4"><a href="/shop" className="text-black no-underline p-3.5 block">Shop</a></li>
             <li className="mx-4"><a href="/contact" className="text-black no-underline p-3.5 block">Contact</a></li>
             <li className="mx-4"><a href="/about" className="text-black no-underline p-3.5 block">About</a></li>
+            <li className="mx-4"><Link to="/login" className="text-black no-underline p-3.5 flex items-center">Login
+            <FaUser className="ml-2"/></Link></li>
           </ul>
-          <div className="cursor-pointer ml-4" onClick={toggleCart}>
+          <div className="cursor-pointer" onClick={toggleCart}>
             <FaShoppingCart/>
           </div>
         </nav>
@@ -41,7 +43,7 @@ const AboutUs: React.FC = () => {
       <section className="mb-16 text-center">
           <div className="flex flex-col md:flex-row items-center mt-8">
             <div className="w-full md:w-1/2 rounded-lg shadow-lg mb-8 md:mb-0 md:mr-8">
-              <img src="/products.jpg" alt="About Us" className="w-full rounded-lg" />
+              <img src="/aboutUs.jpg" alt="About Us" className=" w-full h-full rounded-lg" />
             </div>
             <div className="w-full md:w-1/2">
               <div className="flex flex-col justify-center">
@@ -90,7 +92,7 @@ const AboutUs: React.FC = () => {
 
         <section className="mt-20 mb-16 text-center">
           <h2 className="text-4xl font-bold mb-8 text-gray-800">Our Story</h2>
-          <img src="/image.jpg" alt="google Image" className="ml-40 mb-4 rounded-lg h-[400px] " />
+          <img src="/aboutUs.jpg" alt="google Image" className="ml-40 mb-4 rounded-lg w-full h-[400px] " />
           <p className="text-lg text-gray-700 mb-4">Founded in 2024, our beauty store has always been dedicated to offering a diverse range of products to suit all skin types and preferences. We started with a simple mission: to make beauty accessible to everyone. Over the years, we've expanded our product line and grown our community, but our commitment to quality and customer satisfaction remains unchanged.</p>
           <p className="text-lg text-gray-700 mb-4">We believe that beauty is more than skin deep. It's about feeling good in your own skin, expressing yourself, and embracing your uniqueness. Our products are designed to empower you to do just that.</p>
         </section>

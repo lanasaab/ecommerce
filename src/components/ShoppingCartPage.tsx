@@ -15,9 +15,10 @@ const ShoppingCartPage = ({ onClose, productCount }) => {
         <p className="mt-2 mb-4">You have {productCount} {productCount === 1 ? 'product' : 'products'} in your cart.</p>
       </div>
       <div className="p-4">
-        <Link to={'/shop'} className="text-white bg-black rounded-md px-4 py-2 transition-all duration-300 hover:bg-gray-800 block">
+        <Link to={'/shop'} className="text-center text-white bg-[#ce9d48] rounded-md px-4 py-2 transition-all duration-300 hover:bg-gray-800 block">
           Go To Shop
         </Link>
+        
       </div>
     </div>
   );
