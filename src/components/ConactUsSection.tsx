@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdLocalShipping } from "react-icons/md";
 import { MdLocalOffer } from "react-icons/md";
-import { MdChat } from "react-icons/md";  // Import chat icon
+import { MdChat } from "react-icons/md";
 
 const ContactUsSection = () => {
   const [messages, setMessages] = useState([]);
