@@ -7,7 +7,9 @@ import Products from '../pages/Products'
 import LoginPage from '../pages/LoginPage'
 import SignUpPage from '../pages/SignUpPage'
 import { Route, Routes } from 'react-router-dom'
-
+import ServicesPage from '../pages/ServicesPage'
+import Register from '../pages/Register'
+import EventDetails from '../pages/EventDetails'
 const Routing = () => {
   return (
   <Routes>
@@ -18,6 +20,10 @@ const Routing = () => {
     <Route path="/product/:productId" element={<Products/>} /> 
     <Route path="/login" element={<LoginPage/>} />
     <Route path="/signup" element={<SignUpPage/>} />
+    <Route path="/services" element={<ServicesPage/>} />
+    <Route path="/services/:id" element={<ServicesPage/>} />
+    <Route path="/register" element={<Register/>} />
+    <Route path="/event/:id" element={<EventDetails />} />
   </Routes>
   )
 }

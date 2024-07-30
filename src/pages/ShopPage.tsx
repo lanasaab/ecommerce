@@ -19,39 +19,18 @@ const ShopPage = () => {
     
   return (
     <div>
-      <header className="bg-white shadow-md">
-    <div className="flex justify-center py-4">
-      <img alt="Logo" src="/logo.jpg" className="w-36 h-24 rounded-lg" />
-    </div>
-    <nav className="bg-gray-100 py-2 shadow-sm flex justify-center items-center">
-          <ul className="flex list-none">
-            <li className="mx-4"><a href="/" className="text-black no-underline p-3.5 block">Home</a></li>
-            <li className="mx-4"><a href="/shop" className="text-black no-underline p-3.5 block">Shop</a></li>
-            <li className="mx-4"><a href="/contact" className="text-black no-underline p-3.5 block">Contact</a></li>
-            <li className="mx-4"><a href="/about" className="text-black no-underline p-3.5 block">About</a></li>
-            <li className="mx-4"><Link to="/login" className="text-black no-underline p-3.5 flex items-center">Login
-            <FaUser className="ml-2"/></Link></li>
-          </ul>
-          <div className="cursor-pointer ml-4" onClick={toggleCart}>
-            <FaShoppingCart/>
-          </div>
-        </nav>
-    
-  </header>
-      <div className="max-w-6xl mx-auto flex mt-10 px-4">
+     <Header/>
+      <div className=" mx-auto flex mt-10 px-4 w-full">
         <aside className="w-full md:w-1/4 lg:w-1/4 p-4 mt-40">
-          <div className="bg-white p-4 rounded-lg shadow-md mb-6">
-            <h2 className="text-xl font-semibold mb-4">Search Products</h2>
-            <div className="flex">
-              <input
-                type="text"
-                placeholder="Search.."
-                className="w-full p-2 border-2 border-black"
-              />
-              <button className="ml-2 p-2 text-white bg-black rounded-lg">
-                <FaArrowRight />
-              </button>
-            </div>
+        <div className="bg-white p-4 flex items-center">
+            <input
+              type="text"
+              placeholder="Search.."
+              className="w-64 p-2 border-2 border-black rounded-lg"
+            />
+            <button className="ml-2 p-2 text-white bg-black rounded-lg">
+              <FaArrowRight />
+            </button>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">Categories</h2>
@@ -65,7 +44,7 @@ const ShopPage = () => {
           </div>
           <div className="mt-10 bg-white p-4 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">Filter by Price</h2>
-            <input type="range" min="0" max="100" className="w-full" />
+            <input type="range" min="0" max="100" className="w-full "/>
           </div>
         </aside>
         <Main />

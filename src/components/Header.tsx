@@ -14,35 +14,54 @@ const Header = () => {
     <div>
       <header className="bg-white shadow-md relative">
         <div className="flex justify-center py-4">
-          <img alt="Logo" src="/logo.jpg" className="w-36 h-24 rounded-lg" />
+          <img alt="Logo" src="/logo.png" className=" object-contain h-24 rounded-lg" />
         </div>
         <nav className="bg-gray-100 py-2 shadow-sm flex justify-center items-center">
           <ul className="flex list-none">
-            <li className="mx-4"><a href="/" className="text-black no-underline p-3.5 block">Home</a></li>
-            <li className="mx-4"><a href="/shop" className="text-black no-underline p-3.5 block">Shop</a></li>
-            <li className="mx-4"><a href="/contact" className="text-black no-underline p-3.5 block">Contact</a></li>
-            <li className="mx-4"><a href="/about" className="text-black no-underline p-3.5 block">About</a></li>
-            <li className="mx-4"><Link to="/login" className="text-black no-underline p-3.5 flex items-center">Login
-            <FaUser className="ml-2"/></Link></li>
+            <li className="mx-4 group">
+              <a href="/" className="text-black no-underline p-3.5 block relative">
+                Home
+                <span className="absolute left-0 bottom-0 w-0 h-1 bg-black transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+            <li className="mx-4 group">
+              <a href="/shop" className="text-black no-underline p-3.5 block relative">
+                Shop
+                <span className="absolute left-0 bottom-0 w-0 h-1 bg-black transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+            <li className="mx-4 group">
+              <a href="/services" className="text-black no-underline p-3.5 block relative">
+                Services
+                <span className="absolute left-0 bottom-0 w-0 h-1 bg-black transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+            <li className="mx-4 group">
+              <a href="/contact" className="text-black no-underline p-3.5 block relative">
+                Contact
+                <span className="absolute left-0 bottom-0 w-0 h-1 bg-black transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+            <li className="mx-4 group">
+              <a href="/about" className="text-black no-underline p-3.5 block relative">
+                About
+                <span className="absolute left-0 bottom-0 w-0 h-1 bg-black transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+            <li className="mx-4 group">
+              <Link to="/login" className="text-black no-underline p-3.5 flex items-center relative">
+                Login
+                <FaUser className="ml-2" />
+                
+              </Link>
+            </li>
           </ul>
-          <div className="cursor-pointer" onClick={toggleCart}>
+          <div className="cursor-pointer ml-4" onClick={toggleCart}>
             <FaShoppingCart/>
           </div>
         </nav>
 
-        <div
-  className="flex flex-col items-center justify-center mb-8 p-10"
-  style={{
-    backgroundImage: "url(/images/bg.jpg)",
-    backgroundSize: "cover",
-  }}
->
-  <p className="text-black">A Whole New Look</p>
-  <h2 className="text-3xl font-semibold text-black">Beauty Pronounced</h2>
-  <button className="bg-[#ce9d48] hover:bg-gray-800 text-white font-bold py-2 px-4 rounded mt-4">
-    View More
-  </button>
-</div>
+        
 
 
       </header>

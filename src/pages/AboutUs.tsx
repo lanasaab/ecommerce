@@ -6,6 +6,7 @@ import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import ShoppingCartPage from '../components/ShoppingCartPage';
 import { useState } from "react";
+import Header from "../components/Header";
 
 const AboutUs: React.FC = () => {
   const [showCart, setShowCart] = useState(false);
@@ -17,27 +18,10 @@ const AboutUs: React.FC = () => {
   return (
 
     <div className="font-sans antialiased text-gray-900">
-      <header className="bg-white shadow-md">
-    <div className="flex justify-center py-4">
-      <img alt="Logo" src="/logo.jpg" className="w-36 h-24 rounded-lg" />
-    </div>
-    <nav className="bg-gray-100 py-2 shadow-sm flex justify-center items-center">
-          <ul className="flex list-none">
-            <li className="mx-4"><a href="/" className="text-black no-underline p-3.5 block">Home</a></li>
-            <li className="mx-4"><a href="/shop" className="text-black no-underline p-3.5 block">Shop</a></li>
-            <li className="mx-4"><a href="/contact" className="text-black no-underline p-3.5 block">Contact</a></li>
-            <li className="mx-4"><a href="/about" className="text-black no-underline p-3.5 block">About</a></li>
-            <li className="mx-4"><Link to="/login" className="text-black no-underline p-3.5 flex items-center">Login
-            <FaUser className="ml-2"/></Link></li>
-          </ul>
-          <div className="cursor-pointer" onClick={toggleCart}>
-            <FaShoppingCart/>
-          </div>
-        </nav>
-    <div className="flex flex-col items-center text-center mb-10 py-8 ">
+     <Header/>
+  <div className="flex flex-col items-center text-center mb-10 py-8 ">
       <h2 className="mt-8 text-3xl font-semibold text-black">About Us</h2>
     </div>
-  </header>
   {showCart && <ShoppingCartPage onClose={toggleCart} productCount={productCount} />} 
       <main className="max-w-6xl mx-auto px-4 py-12">
       <section className="mb-16 text-center">
