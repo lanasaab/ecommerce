@@ -59,6 +59,8 @@ const Header = () => {
           <div className="cursor-pointer ml-4" onClick={toggleCart}>
             <FaShoppingCart/>
           </div>
+
+         
         </nav>
 
         

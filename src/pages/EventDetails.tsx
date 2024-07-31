@@ -31,7 +31,7 @@ const events: Event[] = [
     date: '',
     time: '02:00 PM',
     location: 'Tyre',
-    title: '',
+    title: ' Makeup Techniques',
     description: 'Join us for a comprehensive makeup tutorial to enhance your beauty skills.',
     topics: ['Foundation Techniques', 'Eye Makeup', 'Contouring'],
     specialOffers: ['Discount on makeup products'],
@@ -41,10 +41,10 @@ const events: Event[] = [
     date: '',
     time: '04:00 PM',
     location: 'Beirut',
-    title: '',
-    description: '',
-    topics: ['Foundation Techniques', 'Eye Makeup', 'Contouring'],
-    specialOffers: ['Discount on makeup products'],
+    title: 'Cometic Products',
+    description: 'Join our informative workshop about the cosmetic products',
+    topics: ['Makeup', 'Skincare', 'Others'],
+    specialOffers: ['Free samples from our shop'],
   },
 ];
 
