@@ -35,8 +35,9 @@ const events: Event[] = [
     time: '04:00 PM',
     location: 'Beirut',
     title: 'Cosmetic Products',
-    description: 'An informative workshop about the cosmetic products of our shop',
+    description: 'Join an informative workshop about the cosmetic products of our shop.',
   },
+
 ];
 
 const ServicesPage: React.FC = () => {
