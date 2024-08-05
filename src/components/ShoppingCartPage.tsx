@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
-import { getCart, getTotalPrice, removeFromCart } from '../store'; // Adjust path as necessary
+import { getCart, getTotalPrice, removeFromCart } from '../store'; 
 
 const ShoppingCartPage = ({ onClose }) => {
   const cart = getCart();
@@ -9,8 +9,7 @@ const ShoppingCartPage = ({ onClose }) => {
 
   const handleRemove = (productId) => {
     removeFromCart(productId);
-    // To force re-render, you may want to use a state or effect to reload the cart data
-    window.location.reload(); // Simple way to refresh cart data; consider a more efficient approach
+    window.location.reload(); // Simple way to refresh cart data
   };
 
   return (
