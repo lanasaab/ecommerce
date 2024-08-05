@@ -45,3 +45,4 @@ export const getTotalPrice = () => {
   const cart = loadCart();
   return cart.reduce((total, item) => total + item.price * item.quantity, 0);
 };
+
