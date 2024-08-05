@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <div>
-      <header className="bg-white shadow-md relative">
+      <div className="bg-white shadow-md relative">
         <div className="flex justify-center py-4">
           <img alt="Logo" src="/logo.png" className=" object-contain h-24 rounded-lg" />
         </div>
@@ -59,14 +59,8 @@ const Header = () => {
           <div className="cursor-pointer ml-4" onClick={toggleCart}>
             <FaShoppingCart/>
           </div>
-
-         
         </nav>
-
-        
-
-
-      </header>
+      </div>
       {showCart && <ShoppingCartPage onClose={toggleCart} productCount={productCount} />} {/* Pass productCount as a prop */}
     </div>
   );
