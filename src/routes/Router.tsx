@@ -1,4 +1,3 @@
-import React from 'react'
 import HomePage from '../pages/HomePage'
 import AboutUs from '../pages/AboutUs'
 import ContactUs from '../pages/ContactUs'
@@ -22,7 +21,7 @@ const Routing = () => {
     <Route path="/signup" element={<SignUpPage/>} />
     <Route path="/services" element={<ServicesPage/>} />
     <Route path="/services/:id" element={<ServicesPage/>} />
-    <Route path="/register" element={<Register/>} />
+    <Route path="/register" element={<Register />} />
     <Route path="/event/:id" element={<EventDetails />} />
   </Routes>
   )

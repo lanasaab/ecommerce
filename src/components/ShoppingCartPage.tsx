@@ -1,8 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 
+//@ts-expect-error error message
 const ShoppingCartPage = ({ onClose, productCount }) => {
+  
   return (
     <div className="fixed right-0 top-0 h-full w-1/4 bg-gray-200 z-10 shadow-md flex flex-col justify-between">
       <div className="p-4">
@@ -21,6 +22,7 @@ const ShoppingCartPage = ({ onClose, productCount }) => {
         
       </div>
     </div>
+  
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Header from '../components/Header'
 import Main from '../components/Main'
 import ContactUsSection from '../components/ConactUsSection'
@@ -21,9 +22,9 @@ const HomePage = () => {
 >
   <p className="text-black">A Whole New Look</p>
   <h2 className="text-3xl font-semibold text-black">Beauty Pronounced</h2>
-  <button className="bg-[#ce9d48] hover:bg-gray-800 text-white font-bold py-2 px-4 rounded mt-4">
-    View More
-  </button>
+  <Link to={'/'} className="text-center text-white bg-[#ce9d48] rounded-md px-4 py-2 mt-4  transition-all duration-300 hover:bg-gray-800 block ">
+         View More
+        </Link>
 </div>
         <Main/>
         <SponsorsSection/>

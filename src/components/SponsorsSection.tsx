@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 const SponsorsSection: React.FC = () => {
   return (
     <section className="my-10">
@@ -12,9 +13,10 @@ const SponsorsSection: React.FC = () => {
             <p className="text-gray-700 mb-6">Discover a whole new look with our latest collection.
              Transform your style and elevate your beauty routine with our carefully curated products.</p>
           </div>
-          <button type="submit" className="text-white bg-[#ce9d48] rounded-md px-6 py-3 transition-all duration-300 hover:bg-gray-800">
-          View More
-        </button>
+          
+        <Link to={'/'} className="text-center text-white bg-[#ce9d48] rounded-md px-4 py-2 mt-4  transition-all duration-300 hover:bg-gray-800 block ">
+         View More
+        </Link>
         </div>
       </div>
     </section>

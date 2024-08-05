@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { cardData } from '../constants/imageData';
+import Footer from './Footer';
+import Header from './Header';
 
 const ProductDetails = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -31,6 +33,8 @@ const ProductDetails = () => {
   };
 
   return (
+    <div>
+      <Header/>
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row items-center">
         <img src={product.src} alt={product.name} className="w-full md:w-1/2 h-auto rounded-lg shadow-md" />
@@ -83,6 +87,8 @@ const ProductDetails = () => {
           </form>
         </div>
       )}
+    </div>
+    <Footer/>
     </div>
   );
 };

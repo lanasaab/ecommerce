@@ -18,9 +18,9 @@ interface Event {
 const events: Event[] = [
   {
     id: '1',
-    date: '',
+    date: '4/9/2024',
     time: '11:00 AM',
-    location: '',
+    location: 'Tripoli',
     title: 'Luxury Skincare Workshop',
     description: 'Learn the secrets of luxury skincare with our expert estheticians.',
     topics: ['Anti-Aging', 'Hydration', 'Skin Types'],
@@ -28,7 +28,7 @@ const events: Event[] = [
   },
   {
     id: '2',
-    date: '',
+    date: '11/10/2024',
     time: '02:00 PM',
     location: 'Tyre',
     title: ' Makeup Techniques',
@@ -38,7 +38,7 @@ const events: Event[] = [
   },
   {
     id: '3',
-    date: '',
+    date: '17/11/2024',
     time: '04:00 PM',
     location: 'Beirut',
     title: 'Cometic Products',
