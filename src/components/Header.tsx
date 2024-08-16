@@ -13,9 +13,10 @@ const Header = () => {
   return (
     <div>
       <div className="bg-white shadow-md relative">
-        <div className="flex justify-center py-4">
-          <img alt="Logo" src="/logo.png" className=" object-contain h-24 rounded-lg" />
+        <div className="flex justify-center py-4 bg-gray-100">
+          <img alt="Logo" src="/logo (2).png" className=" object-contain h-24 rounded-lg" />
         </div>
+        <hr/>
         <nav className="bg-gray-100 py-2 shadow-sm flex justify-center items-center">
           <ul className="flex list-none">
             <li className="mx-4 group">

@@ -3,14 +3,22 @@ import { useParams } from 'react-router-dom';
 import { cardData } from '../constants/imageData';
 import Footer from './Footer';
 import Header from './Header';
-import { addToCart } from '../store'; 
+import { addToCart } from '../store';
+import { useQuery } from '@tanstack/react-query';
 
 const ProductDetails = () => {
   const { productId } = useParams<{ productId: string }>();
-  const product = cardData.find(item => item.id === productId);
+  // const product = cardData.find(item => item.id === productId);
   const [cartCount, setCartCount] = useState(0);
   const [showReviews, setShowReviews] = useState(false);
+  
+  const { isLoading, error, data:product } = useQuery({
+    queryKey: ['product' ,  productId] ,
+    queryFn: () => fetch(`http://localhost:3000/product/${productId}`).then((res) => res.json())
+  });
 
+  if (isLoading) return "Loading...";
+  if (error) return "An error occurred";
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -35,13 +43,13 @@ const ProductDetails = () => {
   };
 
   return (
-    <div>
+    <div className='flex flex-col min-h-screen '>
       <Header />
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row items-center">
+      <div className="max-w-4xl mx-auto px-4 py-8  flex-grow">
+        <div className="flex flex-col md:flex-row items-center ">
           <img src={product.src} alt={product.name} className="w-full md:w-1/2 h-auto rounded-lg shadow-md" />
           <div className="md:ml-8 mt-4 md:mt-0">
-            <h2 className="text-xl font-bold mb-2">{product.category}</h2> 
+            <h2 className="text-xl font-bold mb-2">{product.category}</h2>
             <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
             <p className="text-gray-700 mb-4">{product.description}</p>
             <p className="text-gray-700 mb-4">${product.price}</p>
