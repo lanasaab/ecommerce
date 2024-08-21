@@ -69,10 +69,11 @@ console.log('====================================');
           Check our calendar for upcoming events and register to secure your spot.
           We look forward to seeing you!
         </p>
-        <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center">
         <img src="https://i.pinimg.com/564x/46/79/3a/46793adbefb4639f6c1ea00770cd0498.jpg" alt="image" className="bg-cover rounded-lg "></img>
         </div>
-        <h1 className="text-3xl font-bold mb-4 text-center ">Upcoming Workshops and Events</h1>
+        
+        <h1 className="text-3xl font-bold mb-4 text-center mt-4">Upcoming Workshops and Events</h1>
         <ul className="space-y-4">
           {service.map(event => (
             <li key={event.id} className="border p-4 rounded-lg shadow-md">

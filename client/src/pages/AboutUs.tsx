@@ -37,7 +37,7 @@ const AboutUs: React.FC = () => {
                 <p className="text-lg text-gray-700">From skincare to makeup, each product is crafted with care and precision, using only the finest ingredients. Our goal is to enhance your natural beauty and give you the tools to express yourself in new and exciting ways.</p>
                 
                 <div className="text-left">
-                  <h2 className="text-2xl font-bold text-gray-800">Types of Products</h2>
+                  <h2 className="text-2xl font-bold text-gray-800 ">Types of Products:</h2>
                   <ul>
                     <li>
                       <p className="ml-5 mb-4 text-gray-800">Skincare</p>
@@ -47,6 +47,9 @@ const AboutUs: React.FC = () => {
                     </li>
                     <li>
                       <p className="ml-5 mb-4 text-gray-800">Haircare</p>
+                    </li>
+                    <li>
+                      <p className="ml-5 mb-4 text-gray-800">Perfume</p>
                     </li>
                   </ul>
                 </div>
