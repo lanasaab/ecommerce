@@ -22,6 +22,9 @@ const OrderSchema = mongoose.Schema({
     name: String,
     address: String,
     email: String,
+    city: String,
+    state: String,
+    zip: Number,
     products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
 })
 const Order = mongoose.model('Order', OrderSchema)
@@ -49,12 +52,14 @@ const ServiceSchema = mongoose.Schema({
 const Service = mongoose.model('Service', ServiceSchema)
 
 
+
 const UserSchema = mongoose.Schema({
-   name: String,
-   email: String,
-   password:String
+    name: String,
+    email: String,
+    password: String
 })
 const User = mongoose.model('User', UserSchema)
+
 
 app.get('/', (req, res) => {
     res.send('Express + TypeScript Server');
@@ -205,6 +210,22 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 });
+
+
+
+//Here you could configure post api for checkout 
+app.post('/checkout', async (req, res) => {
+    try {
+        const { name, address, email, products, city, state, zip } = req.body;
+        console.log({ name, address, email, products, city, state, zip });
+        const newOrder = new Order({ name, address, email, products, city, state })
+        await newOrder.save()
+        res.status(200).json({ name, address, email, products, city, state, zip })
+
+    } catch (error) {
+        res.status(404).json({ error: "There is error" ,error: error.message });
+    }
+})
 
 app.listen(port, async () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);

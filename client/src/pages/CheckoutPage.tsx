@@ -2,10 +2,19 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { getCart, getTotalPrice, removeFromCart } from '../store';
+import axios from 'axios';
 
 const CheckoutPage = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+  });
 
   useEffect(() => {
     const cartItems = getCart();
@@ -28,19 +37,38 @@ const CheckoutPage = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
-  };
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      const validProducts = cart
+      .map(item => item._id)
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
-  });
+      const response = await axios.post(`http://localhost:3000/checkout`, {
+
+        ...formData,
+        products:validProducts
+      })
+
+      if (response.data) {
+        console.log('====================================');
+        console.log(response.data);
+        console.log('====================================');
+      }
+      else {
+        console.log('====================================');
+        console.log("an error occured");
+        console.log('====================================');
+      }
+
+
+
+
+    } catch (error) {
+      console.error(error);
+
+    }
+
+  };
 
   return (
     <>
