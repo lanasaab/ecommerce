@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { cardData } from '../constants/imageData';
 import Footer from './Footer';
@@ -7,6 +7,8 @@ import { addToCart } from '../store';
 import { useQuery } from '@tanstack/react-query';
 
 const ProductDetails = () => {
+  
+  
   const { productId } = useParams<{ productId: string }>();
   // const product = cardData.find(item => item.id === productId);
   const [cartCount, setCartCount] = useState(0);

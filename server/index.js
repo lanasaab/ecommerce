@@ -39,6 +39,12 @@ const ProductSchema = mongoose.Schema({
 })
 const Product = mongoose.model('Product', ProductSchema)
 
+const reviewsSchema = mongoose.Schema({
+    name: String,
+    email: String,
+    review: String,
+})
+const Review = mongoose.model('Review', reviewsSchema)
 
 const ServiceSchema = mongoose.Schema({
     name: String,
@@ -50,8 +56,6 @@ const ServiceSchema = mongoose.Schema({
     offers: String
 })
 const Service = mongoose.model('Service', ServiceSchema)
-
-
 
 const UserSchema = mongoose.Schema({
     name: String,
@@ -82,12 +86,35 @@ app.get('/product/:id', async (req, res) => {
         console.log(id);
         console.log('====================================');
         const product = await Product.findById(req.params.id)
+        
         if (!product) return res.status(404).send('Product not found');
         res.json(product)
     } catch (error) {
         res.status(500).json(error)
     }
 })
+
+app.post('/product/:id', async (req, res) => {
+    try {
+        const { name, email, review } = req.body;
+
+        // Create a new review instance
+        const newReview = new Review({
+            name,
+            email,
+            review,
+        });
+
+        // Save the review to the database
+        await newReview.save();
+
+        // Respond with the created review and a 201 status code
+        res.status(201).json({ name, email, review });
+    } catch (error) {
+        // Handle errors and send a response with a 500 status code
+        res.status(500).json({ error: 'There was an error saving the review', message: error.message });
+    }
+});
 
 app.post('/product/new', (req, res) => {
 
@@ -226,6 +253,8 @@ app.post('/checkout', async (req, res) => {
         res.status(404).json({ error: "There is error" ,error: error.message });
     }
 })
+
+
 
 app.listen(port, async () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);
