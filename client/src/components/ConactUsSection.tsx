@@ -13,10 +13,12 @@ const ContactUsSection = () => {
     const userMessage = { text: inputMessage, isUser: true };
     const response = getResponse(inputMessage);
     const assistantMessage = { text: response, isUser: false };
+    //@ts-expect-error error
     setMessages((prevMessages) => [...prevMessages, userMessage, assistantMessage]);
     setInputMessage('');
   };
 
+  //@ts-expect-error error
   const getResponse = (question) => {
     const questionLowerCase = question.toLowerCase();
     const responses = {
@@ -40,6 +42,7 @@ const ContactUsSection = () => {
         "do you offer student discounts": "Yes, we offer a special discount for students. Verify your student status with our partner verification service to receive discount for your purchases.",
         "how can i update my account information": "You can update your account information by logging into your account on our website and navigating to the account settings section.",
     };
+    //@ts-expect-error erorr
     return responses[questionLowerCase] || "I'm sorry, I'm not sure how to answer that question. Could you please provide more details?";
 };
 
@@ -111,9 +114,14 @@ const ContactUsSection = () => {
           </div>
           <div className="mb-4">
             {messages.map((message, index) => (
+              //@ts-expect-error error
               <div key={index} className={message.isUser ? "text-right mb-2" : "mb-2"}>
-                <p className={message.isUser ? "bg-blue-200 py-2 px-4 rounded-lg inline-block" : "bg-gray-200 py-2 px-4 rounded-lg inline-block"}>
-                  {message.text}
+                <p className={
+                  //@ts-expect-error error
+                  message.isUser ? "bg-blue-200 py-2 px-4 rounded-lg inline-block" : "bg-gray-200 py-2 px-4 rounded-lg inline-block"}>
+                  {
+                  //@ts-expect-error error
+                  message.text}
                 </p>
               </div>
             ))}

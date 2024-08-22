@@ -17,7 +17,6 @@ app.use(bodyparser.urlencoded({ extended: true }));
 const JWT_SECRET = 'lanaKey16981231'; // You should store this securely, preferably in environment variables
 
 
-
 const OrderSchema = mongoose.Schema({
     name: String,
     address: String,
@@ -35,7 +34,12 @@ const ProductSchema = mongoose.Schema({
     category: String,
     name: String,
     description: String,
-    price: Number
+    price: Number,
+    reviews: [{
+        name: String,
+        email: String,
+        review: String,
+    }]
 })
 const Product = mongoose.model('Product', ProductSchema)
 
@@ -82,11 +86,9 @@ app.get('/product/:id', async (req, res) => {
 
     try {
         const { id } = req.params
-        console.log('====================================');
-        console.log(id);
-        console.log('====================================');
+       
         const product = await Product.findById(req.params.id)
-        
+
         if (!product) return res.status(404).send('Product not found');
         res.json(product)
     } catch (error) {
@@ -96,26 +98,25 @@ app.get('/product/:id', async (req, res) => {
 
 app.post('/product/:id', async (req, res) => {
     try {
+        const { id } = req.params;
         const { name, email, review } = req.body;
+        // Find the product by ID
+        const product = await Product.findById(id);
 
-        // Create a new review instance
-        const newReview = new Review({
-            name,
-            email,
-            review,
-        });
+        if (!product) return res.status(404).send('Product not found');
 
-        // Save the review to the database
-        await newReview.save();
+        // Push the new review into the product's reviews array
+        product.reviews.push({ name, email, review });
+
+        // Save the updated product
+        await product.save();
 
         // Respond with the created review and a 201 status code
         res.status(201).json({ name, email, review });
     } catch (error) {
-        // Handle errors and send a response with a 500 status code
         res.status(500).json({ error: 'There was an error saving the review', message: error.message });
     }
 });
-
 app.post('/product/new', (req, res) => {
 
     try {
@@ -238,8 +239,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-
-
 //Here you could configure post api for checkout 
 app.post('/checkout', async (req, res) => {
     try {
@@ -250,10 +249,9 @@ app.post('/checkout', async (req, res) => {
         res.status(200).json({ name, address, email, products, city, state, zip })
 
     } catch (error) {
-        res.status(404).json({ error: "There is error" ,error: error.message });
+        res.status(404).json({ error: "There is error", error: error.message });
     }
 })
-
 
 
 app.listen(port, async () => {
